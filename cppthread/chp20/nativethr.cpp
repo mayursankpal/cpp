@@ -1,6 +1,8 @@
 #include <iostream>
 #include <thread>
 #include <chrono>
+#include <vector>
+#include <string>
 
 using namespace std::literals;
 using namespace std::chrono;
@@ -15,6 +17,9 @@ void hello()
     auto stop = high_resolution_clock::now();
     auto duration = duration_cast<std::chrono::microseconds>(stop - start);
     std::cout << "Thread Function execution time : " << duration.count() << std::endl;
+    std::vector<std::string> msg{"Hi","hello"};
+    std::string temp = msg.at(0);
+    std::cout << "vector has message 0 : " << temp << std::endl ;
 }
 
 int main()
