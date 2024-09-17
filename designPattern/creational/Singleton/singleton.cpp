@@ -30,11 +30,11 @@ public:
     /**
      * Singletons should not be cloneable.
      */
-    Singleton(Singleton &other) = delete;
+    Singleton(Singleton &other) = delete;           //Copy Constructor
     /**
      * Singletons should not be assignable.
      */
-    void operator=(const Singleton &) = delete;
+    void operator=(const Singleton &) = delete;     //Assignment Operator
     /**
      * This is the static method that controls the access to the singleton
      * instance. On the first run, it creates a singleton object and places it
