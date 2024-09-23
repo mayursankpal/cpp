@@ -1,0 +1,407 @@
+mayur@DESKTOP-J12BV3Q:~/cpp/messaging_system/RabbitMQ$ git clone https://github.com/RPG-18/rabbitmq-cpp-tutorials.git
+Cloning into 'rabbitmq-cpp-tutorials'...
+remote: Enumerating objects: 292, done.
+remote: Total 292 (delta 0), reused 0 (delta 0), pack-reused 292 (from 1)
+Receiving objects: 100% (292/292), 439.48 KiB | 4.94 MiB/s, done.
+Resolving deltas: 100% (123/123), done.
+mayur@DESKTOP-J12BV3Q:~/cpp/messaging_system/RabbitMQ$ ll
+total 4
+drwxr-xr-x 6 mayur mayur 4096 Sep 16 10:50 rabbitmq-cpp-tutorials
+mayur@DESKTOP-J12BV3Q:~/cpp/messaging_system/RabbitMQ$ cd rabbitmq-cpp-tutorials/
+mayur@DESKTOP-J12BV3Q:~/cpp/messaging_system/RabbitMQ/rabbitmq-cpp-tutorials$ mkdir build
+mayur@DESKTOP-J12BV3Q:~/cpp/messaging_system/RabbitMQ/rabbitmq-cpp-tutorials$ cd build/
+mayur@DESKTOP-J12BV3Q:~/cpp/messaging_system/RabbitMQ/rabbitmq-cpp-tutorials/build$ cmake
+Usage
+
+  cmake [options] <path-to-source>
+  cmake [options] <path-to-existing-build>
+  cmake [options] -S <path-to-source> -B <path-to-build>
+
+Specify a source directory to (re-)generate a build system for it in the
+current working directory.  Specify an existing build directory to
+re-generate its build system.
+
+Run 'cmake --help' for more information.
+
+mayur@DESKTOP-J12BV3Q:~/cpp/messaging_system/RabbitMQ/rabbitmq-cpp-tutorials/build$ cmake ..
+-- The C compiler identification is GNU 12.2.0
+-- The CXX compiler identification is GNU 12.2.0
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Check for working C compiler: /usr/bin/cc - skipped
+-- Detecting C compile features
+-- Detecting C compile features - done
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Check for working CXX compiler: /usr/bin/c++ - skipped
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+CMake Deprecation Warning at CMakeLists.txt:3 (cmake_minimum_required):
+  Compatibility with CMake < 2.8.12 will be removed from a future version of
+  CMake.
+
+  Update the VERSION argument <min> value or use a ...<max> suffix to tell
+  CMake that the project does not need compatibility with older versions.
+
+
+CMake Deprecation Warning at 3rdparty/AMQP-CPP-2.1.4/CMakeLists.txt:1 (cmake_minimum_required):
+  Compatibility with CMake < 2.8.12 will be removed from a future version of
+  CMake.
+
+  Update the VERSION argument <min> value or use a ...<max> suffix to tell
+  CMake that the project does not need compatibility with older versions.
+
+
+CMake Deprecation Warning at 3rdparty/AMQP-CPP-2.1.4/set_cxx_norm.cmake:2 (cmake_minimum_required):
+  Compatibility with CMake < 2.8.12 will be removed from a future version of
+  CMake.
+
+  Update the VERSION argument <min> value or use a ...<max> suffix to tell
+  CMake that the project does not need compatibility with older versions.
+Call Stack (most recent call first):
+  3rdparty/AMQP-CPP-2.1.4/CMakeLists.txt:6 (include)
+
+
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /home/mayur/cpp/messaging_system/RabbitMQ/rabbitmq-cpp-tutorials/build
+mayur@DESKTOP-J12BV3Q:~/cpp/messaging_system/RabbitMQ/rabbitmq-cpp-tutorials/build$ make
+[  2%] Building CXX object 3rdparty/AMQP-CPP-2.1.4/CMakeFiles/amqp-cpp.dir/src/array.cpp.o
+In file included from /home/mayur/cpp/messaging_system/RabbitMQ/rabbitmq-cpp-tutorials/3rdparty/AMQP-CPP-2.1.4/src/../amqpcpp.h:59,
+                 from /home/mayur/cpp/messaging_system/RabbitMQ/rabbitmq-cpp-tutorials/3rdparty/AMQP-CPP-2.1.4/src/includes.h:11,
+                 from /home/mayur/cpp/messaging_system/RabbitMQ/rabbitmq-cpp-tutorials/3rdparty/AMQP-CPP-2.1.4/src/array.cpp:7:
+/home/mayur/cpp/messaging_system/RabbitMQ/rabbitmq-cpp-tutorials/3rdparty/AMQP-CPP-2.1.4/amqpcpp/callbacks.h:20:34: error: 'function' in namespace 'std' does not name a template type
+   20 | using SuccessCallback   =   std::function<void()>;
+      |                                  ^~~~~~~~
+/home/mayur/cpp/messaging_system/RabbitMQ/rabbitmq-cpp-tutorials/3rdparty/AMQP-CPP-2.1.4/amqpcpp/callbacks.h:1:1: note: 'std::function' is defined in header '<functional>'; did you forget to '#include <functional>'?
+  +++ |+#include <functional>
+    1 | /**
+/home/mayur/cpp/messaging_system/RabbitMQ/rabbitmq-cpp-tutorials/3rdparty/AMQP-CPP-2.1.4/amqpcpp/callbacks.h:21:34: error: 'function' in namespace 'std' does not name a template type
+   21 | using ErrorCallback     =   std::function<void(const char *message)>;
+      |                                  ^~~~~~~~
+/home/mayur/cpp/messaging_system/RabbitMQ/rabbitmq-cpp-tutorials/3rdparty/AMQP-CPP-2.1.4/amqpcpp/callbacks.h:21:29: note: 'std::function' is defined in header '<functional>'; did you forget to '#include <functional>'?
+   21 | using ErrorCallback     =   std::function<void(const char *message)>;
+      |                             ^~~
+/home/mayur/cpp/messaging_system/RabbitMQ/rabbitmq-cpp-tutorials/3rdparty/AMQP-CPP-2.1.4/amqpcpp/callbacks.h:22:34: error: 'function' in namespace 'std' does not name a template type
+   22 | using FinalizeCallback  =   std::function<void()>;
+      |                                  ^~~~~~~~
+/home/mayur/cpp/messaging_system/RabbitMQ/rabbitmq-cpp-tutorials/3rdparty/AMQP-CPP-2.1.4/amqpcpp/callbacks.h:22:29: note: 'std::function' is defined in header '<functional>'; did you forget to '#include <functional>'?
+   22 | using FinalizeCallback  =   std::function<void()>;
+      |                             ^~~
+/home/mayur/cpp/messaging_system/RabbitMQ/rabbitmq-cpp-tutorials/3rdparty/AMQP-CPP-2.1.4/amqpcpp/callbacks.h:23:34: error: 'function' in namespace 'std' does not name a template type
+   23 | using EmptyCallback     =   std::function<void()>;
+      |                                  ^~~~~~~~
+/home/mayur/cpp/messaging_system/RabbitMQ/rabbitmq-cpp-tutorials/3rdparty/AMQP-CPP-2.1.4/amqpcpp/callbacks.h:23:29: note: 'std::function' is defined in header '<functional>'; did you forget to '#include <functional>'?
+   23 | using EmptyCallback     =   std::function<void()>;
+      |                             ^~~
+/home/mayur/cpp/messaging_system/RabbitMQ/rabbitmq-cpp-tutorials/3rdparty/AMQP-CPP-2.1.4/amqpcpp/callbacks.h:24:34: error: 'function' in namespace 'std' does not name a template type
+   24 | using MessageCallback   =   std::function<void(const Message &message, uint64_t deliveryTag, bool redelivered)>;
+      |                                  ^~~~~~~~
+/home/mayur/cpp/messaging_system/RabbitMQ/rabbitmq-cpp-tutorials/3rdparty/AMQP-CPP-2.1.4/amqpcpp/callbacks.h:24:29: note: 'std::function' is defined in header '<functional>'; did you forget to '#include <functional>'?
+   24 | using MessageCallback   =   std::function<void(const Message &message, uint64_t deliveryTag, bool redelivered)>;
+      |                             ^~~
+/home/mayur/cpp/messaging_system/RabbitMQ/rabbitmq-cpp-tutorials/3rdparty/AMQP-CPP-2.1.4/amqpcpp/callbacks.h:25:34: error: 'function' in namespace 'std' does not name a template type
+   25 | using QueueCallback     =   std::function<void(const std::string &name, uint32_t messagecount, uint32_t consumercount)>;
+      |                                  ^~~~~~~~
+/home/mayur/cpp/messaging_system/RabbitMQ/rabbitmq-cpp-tutorials/3rdparty/AMQP-CPP-2.1.4/amqpcpp/callbacks.h:25:29: note: 'std::function' is defined in header '<functional>'; did you forget to '#include <functional>'?
+   25 | using QueueCallback     =   std::function<void(const std::string &name, uint32_t messagecount, uint32_t consumercount)>;
+      |                             ^~~
+/home/mayur/cpp/messaging_system/RabbitMQ/rabbitmq-cpp-tutorials/3rdparty/AMQP-CPP-2.1.4/amqpcpp/callbacks.h:26:34: error: 'function' in namespace 'std' does not name a template type
+   26 | using DeleteCallback    =   std::function<void(uint32_t deletedmessages)>;
+      |                                  ^~~~~~~~
+/home/mayur/cpp/messaging_system/RabbitMQ/rabbitmq-cpp-tutorials/3rdparty/AMQP-CPP-2.1.4/amqpcpp/callbacks.h:26:29: note: 'std::function' is defined in header '<functional>'; did you forget to '#include <functional>'?
+   26 | using DeleteCallback    =   std::function<void(uint32_t deletedmessages)>;
+      |                             ^~~
+/home/mayur/cpp/messaging_system/RabbitMQ/rabbitmq-cpp-tutorials/3rdparty/AMQP-CPP-2.1.4/amqpcpp/callbacks.h:27:34: error: 'function' in namespace 'std' does not name a template type
+   27 | using SizeCallback      =   std::function<void(uint32_t messagecount)>;
+      |                                  ^~~~~~~~
+/home/mayur/cpp/messaging_system/RabbitMQ/rabbitmq-cpp-tutorials/3rdparty/AMQP-CPP-2.1.4/amqpcpp/callbacks.h:27:29: note: 'std::function' is defined in header '<functional>'; did you forget to '#include <functional>'?
+   27 | using SizeCallback      =   std::function<void(uint32_t messagecount)>;
+      |                             ^~~
+/home/mayur/cpp/messaging_system/RabbitMQ/rabbitmq-cpp-tutorials/3rdparty/AMQP-CPP-2.1.4/amqpcpp/callbacks.h:28:34: error: 'function' in namespace 'std' does not name a template type
+   28 | using ConsumeCallback   =   std::function<void(const std::string &consumer)>;
+      |                                  ^~~~~~~~
+/home/mayur/cpp/messaging_system/RabbitMQ/rabbitmq-cpp-tutorials/3rdparty/AMQP-CPP-2.1.4/amqpcpp/callbacks.h:28:29: note: 'std::function' is defined in header '<functional>'; did you forget to '#include <functional>'?
+   28 | using ConsumeCallback   =   std::function<void(const std::string &consumer)>;
+      |                             ^~~
+/home/mayur/cpp/messaging_system/RabbitMQ/rabbitmq-cpp-tutorials/3rdparty/AMQP-CPP-2.1.4/amqpcpp/callbacks.h:29:34: error: 'function' in namespace 'std' does not name a template type
+   29 | using CancelCallback    =   std::function<void(const std::string &consumer)>;
+      |                                  ^~~~~~~~
+/home/mayur/cpp/messaging_system/RabbitMQ/rabbitmq-cpp-tutorials/3rdparty/AMQP-CPP-2.1.4/amqpcpp/callbacks.h:29:29: note: 'std::function' is defined in header '<functional>'; did you forget to '#include <functional>'?
+   29 | using CancelCallback    =   std::function<void(const std::string &consumer)>;
+      |                             ^~~
+In file included from /home/mayur/cpp/messaging_system/RabbitMQ/rabbitmq-cpp-tutorials/3rdparty/AMQP-CPP-2.1.4/src/../amqpcpp.h:60:
+/home/mayur/cpp/messaging_system/RabbitMQ/rabbitmq-cpp-tutorials/3rdparty/AMQP-CPP-2.1.4/amqpcpp/deferred.h:29:5: error: 'FinalizeCallback' does not name a type
+   29 |     FinalizeCallback _finalizeCallback;
+      |     ^~~~~~~~~~~~~~~~
+/home/mayur/cpp/messaging_system/RabbitMQ/rabbitmq-cpp-tutorials/3rdparty/AMQP-CPP-2.1.4/amqpcpp/deferred.h:36:5: error: 'SuccessCallback' does not name a type
+   36 |     SuccessCallback _successCallback;
+      |     ^~~~~~~~~~~~~~~
+/home/mayur/cpp/messaging_system/RabbitMQ/rabbitmq-cpp-tutorials/3rdparty/AMQP-CPP-2.1.4/amqpcpp/deferred.h:42:5: error: 'ErrorCallback' does not name a type
+   42 |     ErrorCallback _errorCallback;
+      |     ^~~~~~~~~~~~~
+/home/mayur/cpp/messaging_system/RabbitMQ/rabbitmq-cpp-tutorials/3rdparty/AMQP-CPP-2.1.4/amqpcpp/deferred.h:195:31: error: 'SuccessCallback' does not name a type
+  195 |     Deferred &onSuccess(const SuccessCallback &callback)
+      |                               ^~~~~~~~~~~~~~~
+/home/mayur/cpp/messaging_system/RabbitMQ/rabbitmq-cpp-tutorials/3rdparty/AMQP-CPP-2.1.4/amqpcpp/deferred.h:214:29: error: 'ErrorCallback' does not name a type
+  214 |     Deferred &onError(const ErrorCallback &callback)
+      |                             ^~~~~~~~~~~~~
+/home/mayur/cpp/messaging_system/RabbitMQ/rabbitmq-cpp-tutorials/3rdparty/AMQP-CPP-2.1.4/amqpcpp/deferred.h:241:32: error: 'FinalizeCallback' does not name a type
+  241 |     Deferred &onFinalize(const FinalizeCallback &callback)
+      |                                ^~~~~~~~~~~~~~~~
+/home/mayur/cpp/messaging_system/RabbitMQ/rabbitmq-cpp-tutorials/3rdparty/AMQP-CPP-2.1.4/amqpcpp/deferred.h: In member function 'virtual const std::shared_ptr<AMQP::Deferred>& AMQP::Deferred::reportSuccess() const':
+/home/mayur/cpp/messaging_system/RabbitMQ/rabbitmq-cpp-tutorials/3rdparty/AMQP-CPP-2.1.4/amqpcpp/deferred.h:73:13: error: '_successCallback' was not declared in this scope
+   73 |         if (_successCallback) _successCallback();
+      |             ^~~~~~~~~~~~~~~~
+/home/mayur/cpp/messaging_system/RabbitMQ/rabbitmq-cpp-tutorials/3rdparty/AMQP-CPP-2.1.4/amqpcpp/deferred.h: In member function 'const std::shared_ptr<AMQP::Deferred>& AMQP::Deferred::reportError(const char*)':
+/home/mayur/cpp/messaging_system/RabbitMQ/rabbitmq-cpp-tutorials/3rdparty/AMQP-CPP-2.1.4/amqpcpp/deferred.h:125:13: error: '_errorCallback' was not declared in this scope
+  125 |         if (_errorCallback) _errorCallback(error);
+      |             ^~~~~~~~~~~~~~
+/home/mayur/cpp/messaging_system/RabbitMQ/rabbitmq-cpp-tutorials/3rdparty/AMQP-CPP-2.1.4/amqpcpp/deferred.h: In destructor 'virtual AMQP::Deferred::~Deferred()':
+/home/mayur/cpp/messaging_system/RabbitMQ/rabbitmq-cpp-tutorials/3rdparty/AMQP-CPP-2.1.4/amqpcpp/deferred.h:173:13: error: '_finalizeCallback' was not declared in this scope
+  173 |         if (_finalizeCallback) _finalizeCallback();
+      |             ^~~~~~~~~~~~~~~~~
+/home/mayur/cpp/messaging_system/RabbitMQ/rabbitmq-cpp-tutorials/3rdparty/AMQP-CPP-2.1.4/amqpcpp/deferred.h: In member function 'AMQP::Deferred& AMQP::Deferred::onSuccess(const int&)':
+/home/mayur/cpp/messaging_system/RabbitMQ/rabbitmq-cpp-tutorials/3rdparty/AMQP-CPP-2.1.4/amqpcpp/deferred.h:198:9: error: '_successCallback' was not declared in this scope
+  198 |         _successCallback = callback;
+      |         ^~~~~~~~~~~~~~~~
+/home/mayur/cpp/messaging_system/RabbitMQ/rabbitmq-cpp-tutorials/3rdparty/AMQP-CPP-2.1.4/amqpcpp/deferred.h: In member function 'AMQP::Deferred& AMQP::Deferred::onError(const int&)':
+/home/mayur/cpp/messaging_system/RabbitMQ/rabbitmq-cpp-tutorials/3rdparty/AMQP-CPP-2.1.4/amqpcpp/deferred.h:217:9: error: '_errorCallback' was not declared in this scope
+  217 |         _errorCallback = callback;
+      |         ^~~~~~~~~~~~~~
+/home/mayur/cpp/messaging_system/RabbitMQ/rabbitmq-cpp-tutorials/3rdparty/AMQP-CPP-2.1.4/amqpcpp/deferred.h:220:30: error: expression cannot be used as a function
+  220 |         if (_failed) callback("Frame could not be sent");
+      |                      ~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/mayur/cpp/messaging_system/RabbitMQ/rabbitmq-cpp-tutorials/3rdparty/AMQP-CPP-2.1.4/amqpcpp/deferred.h: In member function 'AMQP::Deferred& AMQP::Deferred::onFinalize(const int&)':
+/home/mayur/cpp/messaging_system/RabbitMQ/rabbitmq-cpp-tutorials/3rdparty/AMQP-CPP-2.1.4/amqpcpp/deferred.h:244:9: error: '_finalizeCallback' was not declared in this scope
+  244 |         _finalizeCallback = callback;
+      |         ^~~~~~~~~~~~~~~~~
+In file included from /home/mayur/cpp/messaging_system/RabbitMQ/rabbitmq-cpp-tutorials/3rdparty/AMQP-CPP-2.1.4/src/../amqpcpp.h:61:
+/home/mayur/cpp/messaging_system/RabbitMQ/rabbitmq-cpp-tutorials/3rdparty/AMQP-CPP-2.1.4/amqpcpp/deferredconsumer.h: At global scope:
+/home/mayur/cpp/messaging_system/RabbitMQ/rabbitmq-cpp-tutorials/3rdparty/AMQP-CPP-2.1.4/amqpcpp/deferredconsumer.h:30:5: error: 'ConsumeCallback' does not name a type
+   30 |     ConsumeCallback _consumeCallback;
+      |     ^~~~~~~~~~~~~~~
+/home/mayur/cpp/messaging_system/RabbitMQ/rabbitmq-cpp-tutorials/3rdparty/AMQP-CPP-2.1.4/amqpcpp/deferredconsumer.h:36:5: error: 'MessageCallback' does not name a type
+   36 |     MessageCallback _messageCallback;
+      |     ^~~~~~~~~~~~~~~
+/home/mayur/cpp/messaging_system/RabbitMQ/rabbitmq-cpp-tutorials/3rdparty/AMQP-CPP-2.1.4/amqpcpp/deferredconsumer.h:73:39: error: 'ConsumeCallback' does not name a type
+   73 |     DeferredConsumer &onSuccess(const ConsumeCallback &callback)
+      |                                       ^~~~~~~~~~~~~~~
+/home/mayur/cpp/messaging_system/RabbitMQ/rabbitmq-cpp-tutorials/3rdparty/AMQP-CPP-2.1.4/amqpcpp/deferredconsumer.h:86:39: error: 'SuccessCallback' does not name a type
+   86 |     DeferredConsumer &onSuccess(const SuccessCallback &callback)
+      |                                       ^~~~~~~~~~~~~~~
+/home/mayur/cpp/messaging_system/RabbitMQ/rabbitmq-cpp-tutorials/3rdparty/AMQP-CPP-2.1.4/amqpcpp/deferredconsumer.h:86:23: error: 'AMQP::DeferredConsumer& AMQP::DeferredConsumer::onSuccess(const int&)' cannot be overloaded with 'AMQP::DeferredConsumer& AMQP::DeferredConsumer::onSuccess(const int&)'
+   86 |     DeferredConsumer &onSuccess(const SuccessCallback &callback)
+      |                       ^~~~~~~~~
+/home/mayur/cpp/messaging_system/RabbitMQ/rabbitmq-cpp-tutorials/3rdparty/AMQP-CPP-2.1.4/amqpcpp/deferredconsumer.h:73:23: note: previous declaration 'AMQP::DeferredConsumer& AMQP::DeferredConsumer::onSuccess(const int&)'
+   73 |     DeferredConsumer &onSuccess(const ConsumeCallback &callback)
+      |                       ^~~~~~~~~
+/home/mayur/cpp/messaging_system/RabbitMQ/rabbitmq-cpp-tutorials/3rdparty/AMQP-CPP-2.1.4/amqpcpp/deferredconsumer.h:100:40: error: 'MessageCallback' does not name a type
+  100 |     DeferredConsumer &onReceived(const MessageCallback &callback)
+      |                                        ^~~~~~~~~~~~~~~
+/home/mayur/cpp/messaging_system/RabbitMQ/rabbitmq-cpp-tutorials/3rdparty/AMQP-CPP-2.1.4/amqpcpp/deferredconsumer.h:114:39: error: 'MessageCallback' does not name a type
+  114 |     DeferredConsumer &onMessage(const MessageCallback &callback)
+      |                                       ^~~~~~~~~~~~~~~
+/home/mayur/cpp/messaging_system/RabbitMQ/rabbitmq-cpp-tutorials/3rdparty/AMQP-CPP-2.1.4/amqpcpp/deferredconsumer.h: In member function 'AMQP::DeferredConsumer& AMQP::DeferredConsumer::onSuccess(const int&)':
+/home/mayur/cpp/messaging_system/RabbitMQ/rabbitmq-cpp-tutorials/3rdparty/AMQP-CPP-2.1.4/amqpcpp/deferredconsumer.h:76:9: error: '_consumeCallback' was not declared in this scope
+   76 |         _consumeCallback = callback;
+      |         ^~~~~~~~~~~~~~~~
+/home/mayur/cpp/messaging_system/RabbitMQ/rabbitmq-cpp-tutorials/3rdparty/AMQP-CPP-2.1.4/amqpcpp/deferredconsumer.h: In member function 'AMQP::DeferredConsumer& AMQP::DeferredConsumer::onReceived(const int&)':
+/home/mayur/cpp/messaging_system/RabbitMQ/rabbitmq-cpp-tutorials/3rdparty/AMQP-CPP-2.1.4/amqpcpp/deferredconsumer.h:103:9: error: '_messageCallback' was not declared in this scope
+  103 |         _messageCallback = callback;
+      |         ^~~~~~~~~~~~~~~~
+/home/mayur/cpp/messaging_system/RabbitMQ/rabbitmq-cpp-tutorials/3rdparty/AMQP-CPP-2.1.4/amqpcpp/deferredconsumer.h: In member function 'AMQP::DeferredConsumer& AMQP::DeferredConsumer::onMessage(const int&)':
+/home/mayur/cpp/messaging_system/RabbitMQ/rabbitmq-cpp-tutorials/3rdparty/AMQP-CPP-2.1.4/amqpcpp/deferredconsumer.h:117:9: error: '_messageCallback' was not declared in this scope
+  117 |         _messageCallback = callback;
+      |         ^~~~~~~~~~~~~~~~
+In file included from /home/mayur/cpp/messaging_system/RabbitMQ/rabbitmq-cpp-tutorials/3rdparty/AMQP-CPP-2.1.4/src/../amqpcpp.h:62:
+/home/mayur/cpp/messaging_system/RabbitMQ/rabbitmq-cpp-tutorials/3rdparty/AMQP-CPP-2.1.4/amqpcpp/deferredqueue.h: At global scope:
+/home/mayur/cpp/messaging_system/RabbitMQ/rabbitmq-cpp-tutorials/3rdparty/AMQP-CPP-2.1.4/amqpcpp/deferredqueue.h:24:5: error: 'QueueCallback' does not name a type
+   24 |     QueueCallback _queueCallback;
+      |     ^~~~~~~~~~~~~
+/home/mayur/cpp/messaging_system/RabbitMQ/rabbitmq-cpp-tutorials/3rdparty/AMQP-CPP-2.1.4/amqpcpp/deferredqueue.h:74:36: error: 'QueueCallback' does not name a type
+   74 |     DeferredQueue &onSuccess(const QueueCallback &callback)
+      |                                    ^~~~~~~~~~~~~
+/home/mayur/cpp/messaging_system/RabbitMQ/rabbitmq-cpp-tutorials/3rdparty/AMQP-CPP-2.1.4/amqpcpp/deferredqueue.h:87:36: error: 'SuccessCallback' does not name a type
+   87 |     DeferredQueue &onSuccess(const SuccessCallback &callback)
+      |                                    ^~~~~~~~~~~~~~~
+/home/mayur/cpp/messaging_system/RabbitMQ/rabbitmq-cpp-tutorials/3rdparty/AMQP-CPP-2.1.4/amqpcpp/deferredqueue.h:87:20: error: 'AMQP::DeferredQueue& AMQP::DeferredQueue::onSuccess(const int&)' cannot be overloaded with 'AMQP::DeferredQueue& AMQP::DeferredQueue::onSuccess(const int&)'
+   87 |     DeferredQueue &onSuccess(const SuccessCallback &callback)
+      |                    ^~~~~~~~~
+/home/mayur/cpp/messaging_system/RabbitMQ/rabbitmq-cpp-tutorials/3rdparty/AMQP-CPP-2.1.4/amqpcpp/deferredqueue.h:74:20: note: previous declaration 'AMQP::DeferredQueue& AMQP::DeferredQueue::onSuccess(const int&)'
+   74 |     DeferredQueue &onSuccess(const QueueCallback &callback)
+      |                    ^~~~~~~~~
+/home/mayur/cpp/messaging_system/RabbitMQ/rabbitmq-cpp-tutorials/3rdparty/AMQP-CPP-2.1.4/amqpcpp/deferredqueue.h: In member function 'virtual const std::shared_ptr<AMQP::Deferred>& AMQP::DeferredQueue::reportSuccess(const std::string&, uint32_t, uint32_t) const':
+/home/mayur/cpp/messaging_system/RabbitMQ/rabbitmq-cpp-tutorials/3rdparty/AMQP-CPP-2.1.4/amqpcpp/deferredqueue.h:36:14: error: '_queueCallback' was not declared in this scope
+   36 |         if (!_queueCallback) return Deferred::reportSuccess();
+      |              ^~~~~~~~~~~~~~
+/home/mayur/cpp/messaging_system/RabbitMQ/rabbitmq-cpp-tutorials/3rdparty/AMQP-CPP-2.1.4/amqpcpp/deferredqueue.h:39:9: error: '_queueCallback' was not declared in this scope
+   39 |         _queueCallback(name, messagecount, consumercount);
+      |         ^~~~~~~~~~~~~~
+/home/mayur/cpp/messaging_system/RabbitMQ/rabbitmq-cpp-tutorials/3rdparty/AMQP-CPP-2.1.4/amqpcpp/deferredqueue.h: In member function 'AMQP::DeferredQueue& AMQP::DeferredQueue::onSuccess(const int&)':
+/home/mayur/cpp/messaging_system/RabbitMQ/rabbitmq-cpp-tutorials/3rdparty/AMQP-CPP-2.1.4/amqpcpp/deferredqueue.h:77:9: error: '_queueCallback' was not declared in this scope
+   77 |         _queueCallback = callback;
+      |         ^~~~~~~~~~~~~~
+In file included from /home/mayur/cpp/messaging_system/RabbitMQ/rabbitmq-cpp-tutorials/3rdparty/AMQP-CPP-2.1.4/src/../amqpcpp.h:63:
+/home/mayur/cpp/messaging_system/RabbitMQ/rabbitmq-cpp-tutorials/3rdparty/AMQP-CPP-2.1.4/amqpcpp/deferreddelete.h: At global scope:
+/home/mayur/cpp/messaging_system/RabbitMQ/rabbitmq-cpp-tutorials/3rdparty/AMQP-CPP-2.1.4/amqpcpp/deferreddelete.h:25:5: error: 'DeleteCallback' does not name a type
+   25 |     DeleteCallback _deleteCallback;
+      |     ^~~~~~~~~~~~~~
+/home/mayur/cpp/messaging_system/RabbitMQ/rabbitmq-cpp-tutorials/3rdparty/AMQP-CPP-2.1.4/amqpcpp/deferreddelete.h:74:37: error: 'DeleteCallback' does not name a type
+   74 |     DeferredDelete &onSuccess(const DeleteCallback &callback)
+      |                                     ^~~~~~~~~~~~~~
+/home/mayur/cpp/messaging_system/RabbitMQ/rabbitmq-cpp-tutorials/3rdparty/AMQP-CPP-2.1.4/amqpcpp/deferreddelete.h:87:37: error: 'SuccessCallback' does not name a type
+   87 |     DeferredDelete &onSuccess(const SuccessCallback &callback)
+      |                                     ^~~~~~~~~~~~~~~
+/home/mayur/cpp/messaging_system/RabbitMQ/rabbitmq-cpp-tutorials/3rdparty/AMQP-CPP-2.1.4/amqpcpp/deferreddelete.h:87:21: error: 'AMQP::DeferredDelete& AMQP::DeferredDelete::onSuccess(const int&)' cannot be overloaded with 'AMQP::DeferredDelete& AMQP::DeferredDelete::onSuccess(const int&)'
+   87 |     DeferredDelete &onSuccess(const SuccessCallback &callback)
+      |                     ^~~~~~~~~
+/home/mayur/cpp/messaging_system/RabbitMQ/rabbitmq-cpp-tutorials/3rdparty/AMQP-CPP-2.1.4/amqpcpp/deferreddelete.h:74:21: note: previous declaration 'AMQP::DeferredDelete& AMQP::DeferredDelete::onSuccess(const int&)'
+   74 |     DeferredDelete &onSuccess(const DeleteCallback &callback)
+      |                     ^~~~~~~~~
+/home/mayur/cpp/messaging_system/RabbitMQ/rabbitmq-cpp-tutorials/3rdparty/AMQP-CPP-2.1.4/amqpcpp/deferreddelete.h: In member function 'virtual const std::shared_ptr<AMQP::Deferred>& AMQP::DeferredDelete::reportSuccess(uint32_t) const':
+/home/mayur/cpp/messaging_system/RabbitMQ/rabbitmq-cpp-tutorials/3rdparty/AMQP-CPP-2.1.4/amqpcpp/deferreddelete.h:35:14: error: '_deleteCallback' was not declared in this scope
+   35 |         if (!_deleteCallback) return Deferred::reportSuccess();
+      |              ^~~~~~~~~~~~~~~
+/home/mayur/cpp/messaging_system/RabbitMQ/rabbitmq-cpp-tutorials/3rdparty/AMQP-CPP-2.1.4/amqpcpp/deferreddelete.h:38:9: error: '_deleteCallback' was not declared in this scope
+   38 |         _deleteCallback(messagecount);
+      |         ^~~~~~~~~~~~~~~
+/home/mayur/cpp/messaging_system/RabbitMQ/rabbitmq-cpp-tutorials/3rdparty/AMQP-CPP-2.1.4/amqpcpp/deferreddelete.h: In member function 'AMQP::DeferredDelete& AMQP::DeferredDelete::onSuccess(const int&)':
+/home/mayur/cpp/messaging_system/RabbitMQ/rabbitmq-cpp-tutorials/3rdparty/AMQP-CPP-2.1.4/amqpcpp/deferreddelete.h:77:9: error: '_deleteCallback' was not declared in this scope
+   77 |         _deleteCallback = callback;
+      |         ^~~~~~~~~~~~~~~
+In file included from /home/mayur/cpp/messaging_system/RabbitMQ/rabbitmq-cpp-tutorials/3rdparty/AMQP-CPP-2.1.4/src/../amqpcpp.h:64:
+/home/mayur/cpp/messaging_system/RabbitMQ/rabbitmq-cpp-tutorials/3rdparty/AMQP-CPP-2.1.4/amqpcpp/deferredcancel.h: At global scope:
+/home/mayur/cpp/messaging_system/RabbitMQ/rabbitmq-cpp-tutorials/3rdparty/AMQP-CPP-2.1.4/amqpcpp/deferredcancel.h:32:5: error: 'CancelCallback' does not name a type
+   32 |     CancelCallback _cancelCallback;
+      |     ^~~~~~~~~~~~~~
+/home/mayur/cpp/messaging_system/RabbitMQ/rabbitmq-cpp-tutorials/3rdparty/AMQP-CPP-2.1.4/amqpcpp/deferredcancel.h:72:37: error: 'CancelCallback' does not name a type
+   72 |     DeferredCancel &onSuccess(const CancelCallback &callback)
+      |                                     ^~~~~~~~~~~~~~
+/home/mayur/cpp/messaging_system/RabbitMQ/rabbitmq-cpp-tutorials/3rdparty/AMQP-CPP-2.1.4/amqpcpp/deferredcancel.h:85:37: error: 'SuccessCallback' does not name a type
+   85 |     DeferredCancel &onSuccess(const SuccessCallback &callback)
+      |                                     ^~~~~~~~~~~~~~~
+/home/mayur/cpp/messaging_system/RabbitMQ/rabbitmq-cpp-tutorials/3rdparty/AMQP-CPP-2.1.4/amqpcpp/deferredcancel.h:85:21: error: 'AMQP::DeferredCancel& AMQP::DeferredCancel::onSuccess(const int&)' cannot be overloaded with 'AMQP::DeferredCancel& AMQP::DeferredCancel::onSuccess(const int&)'
+   85 |     DeferredCancel &onSuccess(const SuccessCallback &callback)
+      |                     ^~~~~~~~~
+/home/mayur/cpp/messaging_system/RabbitMQ/rabbitmq-cpp-tutorials/3rdparty/AMQP-CPP-2.1.4/amqpcpp/deferredcancel.h:72:21: note: previous declaration 'AMQP::DeferredCancel& AMQP::DeferredCancel::onSuccess(const int&)'
+   72 |     DeferredCancel &onSuccess(const CancelCallback &callback)
+      |                     ^~~~~~~~~
+/home/mayur/cpp/messaging_system/RabbitMQ/rabbitmq-cpp-tutorials/3rdparty/AMQP-CPP-2.1.4/amqpcpp/deferredcancel.h: In member function 'AMQP::DeferredCancel& AMQP::DeferredCancel::onSuccess(const int&)':
+/home/mayur/cpp/messaging_system/RabbitMQ/rabbitmq-cpp-tutorials/3rdparty/AMQP-CPP-2.1.4/amqpcpp/deferredcancel.h:75:9: error: '_cancelCallback' was not declared in this scope
+   75 |         _cancelCallback = callback;
+      |         ^~~~~~~~~~~~~~~
+In file included from /home/mayur/cpp/messaging_system/RabbitMQ/rabbitmq-cpp-tutorials/3rdparty/AMQP-CPP-2.1.4/src/../amqpcpp.h:65:
+/home/mayur/cpp/messaging_system/RabbitMQ/rabbitmq-cpp-tutorials/3rdparty/AMQP-CPP-2.1.4/amqpcpp/deferredget.h: At global scope:
+/home/mayur/cpp/messaging_system/RabbitMQ/rabbitmq-cpp-tutorials/3rdparty/AMQP-CPP-2.1.4/amqpcpp/deferredget.h:33:5: error: 'MessageCallback' does not name a type
+   33 |     MessageCallback _messageCallback;
+      |     ^~~~~~~~~~~~~~~
+/home/mayur/cpp/messaging_system/RabbitMQ/rabbitmq-cpp-tutorials/3rdparty/AMQP-CPP-2.1.4/amqpcpp/deferredget.h:39:5: error: 'EmptyCallback' does not name a type
+   39 |     EmptyCallback _emptyCallback;
+      |     ^~~~~~~~~~~~~
+/home/mayur/cpp/messaging_system/RabbitMQ/rabbitmq-cpp-tutorials/3rdparty/AMQP-CPP-2.1.4/amqpcpp/deferredget.h:45:5: error: 'SizeCallback' does not name a type
+   45 |     SizeCallback _sizeCallback;
+      |     ^~~~~~~~~~~~
+/home/mayur/cpp/messaging_system/RabbitMQ/rabbitmq-cpp-tutorials/3rdparty/AMQP-CPP-2.1.4/amqpcpp/deferredget.h:88:34: error: 'MessageCallback' does not name a type
+   88 |     DeferredGet &onSuccess(const MessageCallback &callback)
+      |                                  ^~~~~~~~~~~~~~~
+/home/mayur/cpp/messaging_system/RabbitMQ/rabbitmq-cpp-tutorials/3rdparty/AMQP-CPP-2.1.4/amqpcpp/deferredget.h:102:35: error: 'MessageCallback' does not name a type
+  102 |     DeferredGet &onReceived(const MessageCallback &callback)
+      |                                   ^~~~~~~~~~~~~~~
+/home/mayur/cpp/messaging_system/RabbitMQ/rabbitmq-cpp-tutorials/3rdparty/AMQP-CPP-2.1.4/amqpcpp/deferredget.h:116:34: error: 'MessageCallback' does not name a type
+  116 |     DeferredGet &onMessage(const MessageCallback &callback)
+      |                                  ^~~~~~~~~~~~~~~
+/home/mayur/cpp/messaging_system/RabbitMQ/rabbitmq-cpp-tutorials/3rdparty/AMQP-CPP-2.1.4/amqpcpp/deferredget.h:129:32: error: 'EmptyCallback' does not name a type
+  129 |     DeferredGet &onEmpty(const EmptyCallback &callback)
+      |                                ^~~~~~~~~~~~~
+/home/mayur/cpp/messaging_system/RabbitMQ/rabbitmq-cpp-tutorials/3rdparty/AMQP-CPP-2.1.4/amqpcpp/deferredget.h:142:31: error: 'SizeCallback' does not name a type
+  142 |     DeferredGet &onSize(const SizeCallback &callback)
+      |                               ^~~~~~~~~~~~
+/home/mayur/cpp/messaging_system/RabbitMQ/rabbitmq-cpp-tutorials/3rdparty/AMQP-CPP-2.1.4/amqpcpp/deferredget.h: In member function 'AMQP::DeferredGet& AMQP::DeferredGet::onSuccess(const int&)':
+/home/mayur/cpp/messaging_system/RabbitMQ/rabbitmq-cpp-tutorials/3rdparty/AMQP-CPP-2.1.4/amqpcpp/deferredget.h:91:9: error: '_messageCallback' was not declared in this scope
+   91 |         _messageCallback = callback;
+      |         ^~~~~~~~~~~~~~~~
+/home/mayur/cpp/messaging_system/RabbitMQ/rabbitmq-cpp-tutorials/3rdparty/AMQP-CPP-2.1.4/amqpcpp/deferredget.h: In member function 'AMQP::DeferredGet& AMQP::DeferredGet::onReceived(const int&)':
+/home/mayur/cpp/messaging_system/RabbitMQ/rabbitmq-cpp-tutorials/3rdparty/AMQP-CPP-2.1.4/amqpcpp/deferredget.h:105:9: error: '_messageCallback' was not declared in this scope
+  105 |         _messageCallback = callback;
+      |         ^~~~~~~~~~~~~~~~
+/home/mayur/cpp/messaging_system/RabbitMQ/rabbitmq-cpp-tutorials/3rdparty/AMQP-CPP-2.1.4/amqpcpp/deferredget.h: In member function 'AMQP::DeferredGet& AMQP::DeferredGet::onMessage(const int&)':
+/home/mayur/cpp/messaging_system/RabbitMQ/rabbitmq-cpp-tutorials/3rdparty/AMQP-CPP-2.1.4/amqpcpp/deferredget.h:119:9: error: '_messageCallback' was not declared in this scope
+  119 |         _messageCallback = callback;
+      |         ^~~~~~~~~~~~~~~~
+/home/mayur/cpp/messaging_system/RabbitMQ/rabbitmq-cpp-tutorials/3rdparty/AMQP-CPP-2.1.4/amqpcpp/deferredget.h: In member function 'AMQP::DeferredGet& AMQP::DeferredGet::onEmpty(const int&)':
+/home/mayur/cpp/messaging_system/RabbitMQ/rabbitmq-cpp-tutorials/3rdparty/AMQP-CPP-2.1.4/amqpcpp/deferredget.h:132:9: error: '_emptyCallback' was not declared in this scope
+  132 |         _emptyCallback = callback;
+      |         ^~~~~~~~~~~~~~
+/home/mayur/cpp/messaging_system/RabbitMQ/rabbitmq-cpp-tutorials/3rdparty/AMQP-CPP-2.1.4/amqpcpp/deferredget.h: In member function 'AMQP::DeferredGet& AMQP::DeferredGet::onSize(const int&)':
+/home/mayur/cpp/messaging_system/RabbitMQ/rabbitmq-cpp-tutorials/3rdparty/AMQP-CPP-2.1.4/amqpcpp/deferredget.h:145:9: error: '_sizeCallback' was not declared in this scope
+  145 |         _sizeCallback = callback;
+      |         ^~~~~~~~~~~~~
+In file included from /home/mayur/cpp/messaging_system/RabbitMQ/rabbitmq-cpp-tutorials/3rdparty/AMQP-CPP-2.1.4/src/../amqpcpp.h:66:
+/home/mayur/cpp/messaging_system/RabbitMQ/rabbitmq-cpp-tutorials/3rdparty/AMQP-CPP-2.1.4/amqpcpp/channelimpl.h: At global scope:
+/home/mayur/cpp/messaging_system/RabbitMQ/rabbitmq-cpp-tutorials/3rdparty/AMQP-CPP-2.1.4/amqpcpp/channelimpl.h:38:5: error: 'SuccessCallback' does not name a type
+   38 |     SuccessCallback _readyCallback;
+      |     ^~~~~~~~~~~~~~~
+/home/mayur/cpp/messaging_system/RabbitMQ/rabbitmq-cpp-tutorials/3rdparty/AMQP-CPP-2.1.4/amqpcpp/channelimpl.h:44:5: error: 'ErrorCallback' does not name a type
+   44 |     ErrorCallback _errorCallback;
+      |     ^~~~~~~~~~~~~
+/home/mayur/cpp/messaging_system/RabbitMQ/rabbitmq-cpp-tutorials/3rdparty/AMQP-CPP-2.1.4/amqpcpp/channelimpl.h:50:26: error: 'MessageCallback' was not declared in this scope
+   50 |     std::map<std::string,MessageCallback> _consumers;
+      |                          ^~~~~~~~~~~~~~~
+/home/mayur/cpp/messaging_system/RabbitMQ/rabbitmq-cpp-tutorials/3rdparty/AMQP-CPP-2.1.4/amqpcpp/channelimpl.h:50:41: error: template argument 2 is invalid
+   50 |     std::map<std::string,MessageCallback> _consumers;
+      |                                         ^
+/home/mayur/cpp/messaging_system/RabbitMQ/rabbitmq-cpp-tutorials/3rdparty/AMQP-CPP-2.1.4/amqpcpp/channelimpl.h:50:41: error: template argument 4 is invalid
+/home/mayur/cpp/messaging_system/RabbitMQ/rabbitmq-cpp-tutorials/3rdparty/AMQP-CPP-2.1.4/amqpcpp/channelimpl.h:168:24: error: 'SuccessCallback' does not name a type
+  168 |     void onReady(const SuccessCallback &callback)
+      |                        ^~~~~~~~~~~~~~~
+/home/mayur/cpp/messaging_system/RabbitMQ/rabbitmq-cpp-tutorials/3rdparty/AMQP-CPP-2.1.4/amqpcpp/channelimpl.h:185:24: error: 'ErrorCallback' does not name a type
+  185 |     void onError(const ErrorCallback &callback)
+      |                        ^~~~~~~~~~~~~
+/home/mayur/cpp/messaging_system/RabbitMQ/rabbitmq-cpp-tutorials/3rdparty/AMQP-CPP-2.1.4/amqpcpp/channelimpl.h:632:56: error: 'MessageCallback' does not name a type
+  632 |     void install(const std::string &consumertag, const MessageCallback &callback)
+      |                                                        ^~~~~~~~~~~~~~~
+/home/mayur/cpp/messaging_system/RabbitMQ/rabbitmq-cpp-tutorials/3rdparty/AMQP-CPP-2.1.4/amqpcpp/channelimpl.h: In member function 'void AMQP::ChannelImpl::onReady(const int&)':
+/home/mayur/cpp/messaging_system/RabbitMQ/rabbitmq-cpp-tutorials/3rdparty/AMQP-CPP-2.1.4/amqpcpp/channelimpl.h:171:9: error: '_readyCallback' was not declared in this scope; did you mean '_newestCallback'?
+  171 |         _readyCallback = callback;
+      |         ^~~~~~~~~~~~~~
+      |         _newestCallback
+/home/mayur/cpp/messaging_system/RabbitMQ/rabbitmq-cpp-tutorials/3rdparty/AMQP-CPP-2.1.4/amqpcpp/channelimpl.h:174:48: error: expression cannot be used as a function
+  174 |         if (_state == state_connected) callback();
+      |                                        ~~~~~~~~^~
+/home/mayur/cpp/messaging_system/RabbitMQ/rabbitmq-cpp-tutorials/3rdparty/AMQP-CPP-2.1.4/amqpcpp/channelimpl.h: In member function 'void AMQP::ChannelImpl::onError(const int&)':
+/home/mayur/cpp/messaging_system/RabbitMQ/rabbitmq-cpp-tutorials/3rdparty/AMQP-CPP-2.1.4/amqpcpp/channelimpl.h:188:9: error: '_errorCallback' was not declared in this scope; did you mean '_newestCallback'?
+  188 |         _errorCallback = callback;
+      |         ^~~~~~~~~~~~~~
+      |         _newestCallback
+/home/mayur/cpp/messaging_system/RabbitMQ/rabbitmq-cpp-tutorials/3rdparty/AMQP-CPP-2.1.4/amqpcpp/channelimpl.h:191:48: error: expression cannot be used as a function
+  191 |         if (_state != state_connected) callback("Channel is in error state");
+      |                                        ~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/mayur/cpp/messaging_system/RabbitMQ/rabbitmq-cpp-tutorials/3rdparty/AMQP-CPP-2.1.4/amqpcpp/channelimpl.h: In member function 'void AMQP::ChannelImpl::reportReady()':
+/home/mayur/cpp/messaging_system/RabbitMQ/rabbitmq-cpp-tutorials/3rdparty/AMQP-CPP-2.1.4/amqpcpp/channelimpl.h:545:13: error: '_readyCallback' was not declared in this scope; did you mean '_newestCallback'?
+  545 |         if (_readyCallback) _readyCallback();
+      |             ^~~~~~~~~~~~~~
+      |             _newestCallback
+/home/mayur/cpp/messaging_system/RabbitMQ/rabbitmq-cpp-tutorials/3rdparty/AMQP-CPP-2.1.4/amqpcpp/channelimpl.h: In member function 'void AMQP::ChannelImpl::install(const std::string&, const int&)':
+/home/mayur/cpp/messaging_system/RabbitMQ/rabbitmq-cpp-tutorials/3rdparty/AMQP-CPP-2.1.4/amqpcpp/channelimpl.h:635:33: error: no match for 'operator[]' (operand types are 'int' and 'const std::string' {aka 'const std::__cxx11::basic_string<char>'})
+  635 |         if (callback) _consumers[consumertag] = callback;
+      |                                 ^
+/home/mayur/cpp/messaging_system/RabbitMQ/rabbitmq-cpp-tutorials/3rdparty/AMQP-CPP-2.1.4/amqpcpp/channelimpl.h:638:25: error: request for member 'erase' in '((AMQP::ChannelImpl*)this)->AMQP::ChannelImpl::_consumers', which is of non-class type 'int'
+  638 |         else _consumers.erase(consumertag);
+      |                         ^~~~~
+/home/mayur/cpp/messaging_system/RabbitMQ/rabbitmq-cpp-tutorials/3rdparty/AMQP-CPP-2.1.4/amqpcpp/channelimpl.h: In member function 'void AMQP::ChannelImpl::uninstall(const std::string&)':
+/home/mayur/cpp/messaging_system/RabbitMQ/rabbitmq-cpp-tutorials/3rdparty/AMQP-CPP-2.1.4/amqpcpp/channelimpl.h:648:20: error: request for member 'erase' in '((AMQP::ChannelImpl*)this)->AMQP::ChannelImpl::_consumers', which is of non-class type 'int'
+  648 |         _consumers.erase(consumertag);
+      |                    ^~~~~
+In file included from /home/mayur/cpp/messaging_system/RabbitMQ/rabbitmq-cpp-tutorials/3rdparty/AMQP-CPP-2.1.4/src/../amqpcpp.h:67:
+/home/mayur/cpp/messaging_system/RabbitMQ/rabbitmq-cpp-tutorials/3rdparty/AMQP-CPP-2.1.4/amqpcpp/channel.h: At global scope:
+/home/mayur/cpp/messaging_system/RabbitMQ/rabbitmq-cpp-tutorials/3rdparty/AMQP-CPP-2.1.4/amqpcpp/channel.h:66:24: error: 'SuccessCallback' does not name a type
+   66 |     void onReady(const SuccessCallback &callback)
+      |                        ^~~~~~~~~~~~~~~
+/home/mayur/cpp/messaging_system/RabbitMQ/rabbitmq-cpp-tutorials/3rdparty/AMQP-CPP-2.1.4/amqpcpp/channel.h:79:24: error: 'ErrorCallback' does not name a type
+   79 |     void onError(const ErrorCallback &callback)
+      |                        ^~~~~~~~~~~~~
+make[2]: *** [3rdparty/AMQP-CPP-2.1.4/CMakeFiles/amqp-cpp.dir/build.make:76: 3rdparty/AMQP-CPP-2.1.4/CMakeFiles/amqp-cpp.dir/src/array.cpp.o] Error 1
+make[1]: *** [CMakeFiles/Makefile2:175: 3rdparty/AMQP-CPP-2.1.4/CMakeFiles/amqp-cpp.dir/all] Error 2
+make: *** [Makefile:91: all] Error 2
+mayur@DESKTOP-J12BV3Q:~/cpp/messaging_system/RabbitMQ/rabbitmq-cpp-tutorials/build$   
